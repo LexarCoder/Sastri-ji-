@@ -1,0 +1,296 @@
+:root {
+    --link: #fff;
+    --link-hover: #ffd900;
+}
+
+/* =========================================
+   1. CORE WRAPPER & GLASSMORPHISM
+   ========================================= */
+
+.nav-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2000;
+    padding: 15px 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: transparent;
+}
+
+/* Scrolled State: Deep Maroon Glass */
+.nav-active {
+    padding: 10px 0;
+    background: rgba(45, 15, 0, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 215, 0, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.nav-container {
+    width: 92%;
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* =========================================
+   2. BRANDING SECTION
+   ========================================= */
+.nav-logo-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-link {
+    text-decoration: none !important;
+    border-bottom: none !important;
+}
+
+.logo-img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 2px solid #FFD700;
+    object-fit: cover;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+    object-fit: cover;
+}
+
+.logo-brand {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-title {
+    font-size: 11px;
+    color: #FFD700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.brand-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    color: #ffffff;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* =========================================
+   3. NAVIGATION LINKS
+   ========================================= */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+    align-items: center;
+}
+
+:root {
+    --link: #fff;
+    --link-hover: #ffd900;
+}
+
+/* NAV LINK BASE */
+.nav-link-item {
+    position: relative;
+    text-decoration: none;
+    color: var(--link);
+    font-size: 15px;
+    font-weight: 500;
+    padding: 6px 0;
+    transition: color 0.3s ease;
+}
+
+/* Smooth underline */
+.nav-link-item::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--link-hover);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+}
+
+/* Hover */
+.nav-link-item:hover {
+    color: var(--link-hover);
+}
+
+.nav-link-item:hover::after {
+    transform: scaleX(1);
+}
+
+/* Active */
+.nav-link-item.active {
+    color: var(--link-hover);
+}
+
+.nav-link-item.active::after {
+    transform: scaleX(1);
+}
+/* =========================================
+   4. BUTTONS & ACTIONS
+   ========================================= */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-resume-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #FFD700;
+    color: #1a0800;
+    padding: 10px 22px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.nav-resume-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+    color: black;
+}
+
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 2100;
+}
+
+.nav-resume-mobile {
+    display: none;
+}
+
+/* =========================================
+   5. MOBILE RESPONSIVENESS
+   ========================================= */
+/* @media (max-width: 992px) {
+    .desktop-only {
+        display: none;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        max-width: 100%;
+        height: 100vh;
+        background: radial-gradient(circle at center,
+                    #f9741693 0%,
+                    #e2590a9d 45%,
+                    #c2400cb7 75%,
+                    #b91d0ca2 100%);
+        backdrop-filter: blur(5px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        transition: right 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .mobile-nav-active {
+        right: 0 !important;
+    }
+
+    .nav-link-item {
+        font-size: 26px;
+        font-family: 'Playfair Display', serif;
+    }
+
+    .nav-resume-mobile {
+        display: block;
+        margin-top: 20px;
+    }
+
+    .brand-name {
+        font-size: 17px;
+    }
+
+    .logo-img {
+        width: 48px;
+        height: 48px;
+    }
+} */
+
+@media (max-width: 992px) {
+    .desktop-only {
+        display: none;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: #1a08005f;
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        transition: right 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    .mobile-nav-active {
+        right: 0 !important;
+    }
+
+    .nav-link-item {
+        font-size: 26px;
+        font-family: 'Playfair Display', serif;
+    }
+
+    .nav-resume-mobile {
+        display: block;
+        margin-top: 20px;
+    }
+
+    .brand-name {
+        font-size: 17px;
+    }
+
+    .logo-img {
+        width: 48px;
+        height: 48px;
+    }
+}
+@media (max-width: 480px) {
+    .nav-container {
+        width: 95%;
+    }
+
+    .brand-name {
+        font-size: 15px;
+    }
+}

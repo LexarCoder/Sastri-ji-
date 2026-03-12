@@ -1,0 +1,149 @@
+/* --- Root Container --- */
+.thankyou-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    padding: 120px 5% 60px;
+    background: var(--bg-color);
+    box-sizing: border-box;
+    color: var(--para);
+    user-select: none
+}
+
+.main-heading {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--heading-color);
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+
+/* --- Mantra Styling --- */
+
+.mantra {
+    font-size: 1.1rem;
+    font-style: italic;
+    text-align: center;
+    max-width: 800px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    background: rgba(255, 215, 0, 0.1);
+    padding: 15px 25px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+/* --- The Bawal Glassy Details Box --- */
+.details-box {
+    width: 100%;
+    max-width: 1200px;
+    /* Laptop full-width support */
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    padding: 40px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-sizing: border-box;
+    /* Shadow aur Glow puri tarah hata diye gaye hain */
+    box-shadow: none;
+}
+
+.details-box h2 {
+    color: var(--sub-heading);
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+    border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- Responsive Layout: Laptop (Horizontal) --- */
+.details-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 Column layout for Laptop */
+    gap: 20px 30px;
+}
+
+/* Title headings span full width */
+.details-box h2 {
+    grid-column: 1 / -1;
+}
+
+/* --- Text & Label Styling --- */
+.details-box p {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 12px 15px;
+    border-radius: 10px;
+    border-left: 3px solid var(--border-color);
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.details-box strong {
+    color: #ffd700;
+    margin-right: 8px;
+    font-weight: 700;
+}
+
+/* Notes spans full width if present */
+.details-box p:last-child {
+    grid-column: 1 / -1;
+}
+
+/* --- Footer Text --- */
+.footer-text {
+    margin-top: 40px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    opacity: 0.9;
+}
+
+/* --- ✨ RESPONSIVE BREAKPOINTS --- */
+
+/* For Wide Screens (4 Columns) */
+@media (min-width: 1200px) {
+    .details-box {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* For Tablets (2 Columns) */
+@media (max-width: 992px) {
+    .details-box {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* For Mobile (1 Column - Vertical) */
+@media (max-width: 650px) {
+    .thankyou-container {
+        padding: 100px 4% 40px;
+    }
+
+    .mantra {
+        font-size: 0.95rem;
+        border-radius: 20px;
+        padding: 15px;
+    }
+
+    .details-box {
+        grid-template-columns: 1fr;
+        /* Stacked Vertically */
+        padding: 25px 20px;
+    }
+
+    .details-box h2 {
+        font-size: 1.3rem;
+        text-align: center;
+    }
+
+    .main-heading {
+        font-size: 1.8rem;
+    }
+}

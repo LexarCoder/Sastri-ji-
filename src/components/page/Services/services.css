@@ -1,0 +1,247 @@
+/* --- Root Variables for Consistency --- */
+:root {
+    --gold: #FFD700;
+    --saffron: #FF9933;
+    --deep-orange: #B91C0C;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.services-page-root {
+    position: relative;
+    min-height: 100vh;
+    padding: 100px 5% 50px;
+    /* Aapka bataya hua Bawal Gradient */
+    background: var(--bg-color);
+    overflow-x: hidden;
+    color: #fff;
+}
+
+/* --- Hero Section Detailing --- */
+.services-hero {
+    text-align: center;
+    margin-bottom: 50px;
+    z-index: 5;
+    position: relative;
+}
+
+.main-heading {
+    font-size: clamp(2.2rem, 8vw, 3.8rem);
+    color: var(--gold);
+    margin-bottom: 10px;
+    font-family: var(--heading-font);
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+}
+
+.sub-heading {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+.accent-line {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--saffron), transparent);
+    margin: 20px auto;
+    border-radius: 50px;
+}
+
+/* --- Layout Structure --- */
+.services-main-container {
+    display: flex;
+    flex-direction: column;
+    /* Mobile first */
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+    z-index: 5;
+    position: relative;
+}
+
+/* --- Category Sidebar (Mobile: Scrollable Pill Menu) --- */
+.category-sidebar {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 10px 5px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    position: sticky;
+    top: 80px;
+    z-index: 100;
+    /* Glass Effect for Sidebar */
+    background: rgba(185, 28, 12, 0.2);
+    backdrop-filter: blur(8px);
+    border-radius: 15px;
+}
+
+.category-sidebar::-webkit-scrollbar {
+    display: none;
+}
+
+.cat-btn {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 50px;
+    /* Mobile par pill shape */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+    transition: var(--transition);
+    font-size: 0.9rem;
+}
+
+.cat-btn:hover,
+.cat-btn.active {
+    background: rgba(255, 215, 0, 0.15);
+    border-color: var(--gold);
+    transform: translateY(-3px);
+}
+
+.cat-btn.active {
+    background: var(--gold);
+    color: var(--deep-orange);
+    font-weight: 700;
+}
+
+/* --- Content Area Detailing --- */
+.service-content-area {
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(12px);
+    border-radius: 25px;
+    padding: 25px;
+    border: 1px solid var(--glass-border);
+}
+
+.content-header h2 {
+    color: var(--gold);
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+    padding-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center;
+    /* Mobile par center */
+}
+
+/* --- Service Grid & Items (Glass Style) --- */
+.service-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Mobile: Single Column */
+    gap: 15px;
+}
+
+.service-item {
+    background: rgba(255, 255, 255, 0.04);
+    padding: 25px;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /* Mobile par content center */
+    text-align: center;
+    border: 1px solid var(--glass-border);
+    border-left: 4px solid var(--saffron);
+    transition: var(--transition);
+}
+
+.service-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-8px) scale(1.02);
+    border-color: var(--gold);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.service-item p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+/* --- Action Link Button --- */
+.inquiry-link {
+    background: transparent;
+    border: 1.5px solid var(--gold);
+    color: var(--gold);
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.inquiry-link:hover {
+    background: var(--gold);
+    color: var(--deep-orange);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+}
+
+/* =========================================
+   DESKTOP ADJUSTMENTS (992px+)
+   ========================================= */
+@media (min-width: 992px) {
+    .services-main-container {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .category-sidebar {
+        flex: 1;
+        flex-direction: column;
+        overflow-x: hidden;
+        position: sticky;
+        top: 100px;
+        background: transparent;
+        backdrop-filter: none;
+        padding: 0;
+    }
+
+    .cat-btn {
+        width: 100%;
+        border-radius: 12px;
+        padding: 15px 25px;
+        font-size: 1.05rem;
+    }
+
+    .cat-btn:hover,
+    .cat-btn.active {
+        transform: translateX(10px);
+    }
+
+    .cat-btn.active {
+        background: rgba(255, 215, 0, 0.1);
+        color: var(--gold);
+    }
+
+    .service-content-area {
+        flex: 3;
+        padding: 45px;
+    }
+
+    .content-header h2 {
+        justify-content: flex-start;
+    }
+
+    .service-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 25px;
+    }
+
+    .service-item {
+        align-items: flex-start;
+        text-align: left;
+    }
+}

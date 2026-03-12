@@ -1,0 +1,539 @@
+.abt-root {
+    overflow-x: hidden;
+
+}
+
+.abt-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+
+}
+
+.abt-hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+            background: var(--bg-color);
+    padding: 0px 2%;
+}
+
+.abt-hero-main-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 10;
+    gap: 50px;
+    padding: 0px 20px;
+    padding: 0px 5%;
+    
+}
+
+.abt-hero-left-content {
+    flex: 1.2;
+}
+
+.abt-mantra-top {
+    color: var(--sub-heading);
+    letter-spacing: 5px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.abt-main-name {
+    font-size: 5rem;
+    color: var(--heading-color);
+    line-height: 1.1;
+    margin-bottom: 25px;
+    filter: drop-shadow(0 4px 10px rgba(145, 123, 0, 0.5));
+}
+
+.abt-tagline-box {
+    background: rgba(255, 215, 0, 0.1);
+    backdrop-filter: blur(5px);
+    padding: 15px 30px;
+    border-left: 4px solid var(--border-color);
+    display: inline-block;
+}
+
+.abt-tagline {
+    font-size: 1.2rem;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.abt-hero-right-image {
+    flex: 0.8;
+    display: flex;
+    justify-content: center;
+}
+
+.abt-hero-img-container {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+}
+
+.abt-hero-img {
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: relative;
+    border: 5px solid var(--border-color);
+    z-index: 3;
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.5));
+}
+
+.abt-img-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 140%;
+    height: 140%;
+    background: transparent;
+    z-index: 1;
+}
+
+/* =========================================
+   1. BIO & SPECIALIZATION SECTION
+   ========================================= */
+
+.abt-bio-section {
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+    background:var(--bg-color)
+}
+
+.abt-bio-content-full {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.abt-heading-gold {
+    font-size: 3rem;
+    color: var(--heading-color);
+    margin-bottom: 10px;
+}
+
+.abt-divider {
+    width: 100px;
+    height: 4px;
+    background: var(--border-color);
+}
+
+.centered-margin {
+    margin: 0 auto 40px auto;
+}
+
+.centered-text {
+    text-align: center;
+}
+
+.abt-para {
+    font-size: 1.2rem;
+    line-height: 1.9;
+    color: var(--para);
+    margin-bottom: 25px;
+}
+
+/* Specialization Cards */
+
+.abt-spec-options-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.abt-spec-card {
+    background: rgba(255, 255, 255, 0.05);
+    background: rgba(226, 89, 10, 0.401);
+ 
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(250, 218, 36,0.5);
+    padding: 40px 30px;
+    border-radius: 20px;
+    transition: var(--smooth);
+}
+
+.abt-spec-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 215, 0, 0.1);
+    border-color: var(--border-color);
+}
+
+.spec-icon {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.abt-spec-card h3 {
+    color: var(--sub-heading);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.bottom-spacing {
+    margin-top: 40px;
+    opacity: 0.8;
+    font-style: italic;
+}
+/* =========================================
+   2. STATS SECTION (Counter Section)
+   ========================================= */
+.abt-stats {
+    background: radial-gradient(circle at center,
+                #F97316 0%,
+                #E2580A 45%,
+                #C2410C 75%,
+                #B91C0C 100%);
+    backdrop-filter: blur(20px);
+    padding: 60px 0;
+    border-right: 5px solid var(--border-color);
+    border-left: 5px solid var(--border-color);
+    position: relative;
+    z-index: 10;
+}
+
+.abt-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.abt-stat-item h2 {
+    font-size: 3.5rem;
+    color: var(--sub-heading);
+    margin: 0;
+    font-weight: 800;
+}
+
+.abt-stat-item p {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: white;
+    opacity: 0.9;
+}
+
+
+/* =========================================
+   3. GALLERY SECTION
+   ========================================= */
+.abt-gallery-sec {
+    padding: 6rem 0 8rem 0;
+    overflow: hidden;
+}
+
+.abt-gallery-slider {
+    overflow-x: auto;
+    overflow-y: hidden;
+    cursor: grab;
+    scrollbar-width: none;
+}
+
+.abt-gallery-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.abt-gallery-slider:active {
+    cursor: grabbing;
+}
+
+.abt-gallery-track {
+    display: flex;
+    gap: 2rem;
+    width: max-content;
+    animation: scrollSlider 30s linear infinite;
+}
+
+.abt-gallery-slider:hover .abt-gallery-track {
+    animation-play-state: paused;
+}
+
+.abt-gallery-item {
+    flex: 0 0 auto;
+    width: 20rem;
+    height: 24rem;
+    border-radius: 1.2rem;
+    overflow: hidden;
+}
+
+.abt-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes scrollSlider {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+
+/* =========================================
+   3. RESPONSIVE MEDIA QUERIES
+   ========================================= */
+
+/* Tablets & Small Laptops */
+@media (max-width: 1024px) {
+    .abt-main-name {
+        font-size: 3.5rem;
+    }
+
+    .abt-bio-grid {
+        gap: 40px;
+    }
+}
+
+/* Tablets & Large Phones */
+
+@media (max-width: 768px) {
+
+    /* Hero Adjustments */
+    .abt-hero-main-flex {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 100px;
+    }
+
+    .abt-hero-left-content {
+        order: 2;
+    }
+
+    .abt-hero-right-image {
+        order: 1;
+        width: 80%;
+    }
+
+    .abt-main-name {
+        font-size: 2.8rem;
+    }
+
+    .abt-hero-img {
+        width: 300px;
+        height: 300px;
+    }
+
+    /* Bio & Spec Adjustments */
+    .abt-spec-options-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .abt-bio-section {
+        padding: 60px 0;
+    }
+
+    .abt-heading-gold {
+        font-size: 2.2rem;
+    }
+
+    .abt-divider {
+        margin: 0 auto 30px;
+    }
+
+    /* Stats Adjustments */
+    .abt-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+    .abt-stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .abt-main-name {
+        font-size: 2.2rem;
+    }
+
+    .abt-heading-gold {
+        font-size: 2rem;
+    }
+
+    .mantra-line {
+        font-size: 2.5rem;
+    }
+
+    .abt-stat-item h2 {
+        font-size: 2.5rem;
+    }
+}
+
+
+
+/* =========================================
+   📱 Small Mobile (up to 480px)
+   ========================================= */
+@media (max-width: 30rem) {
+
+    .abt-hero-main-flex {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .abt-hero-left-content {
+        order: 2;
+    }
+
+    .abt-hero-right-image {
+        order: 1;
+        width: 100%;
+    }
+
+    .abt-main-name {
+        font-size: 2.2rem;
+    }
+
+    .abt-hero-img {
+        width: 16rem;
+        height: 16rem;
+    }
+
+    .abt-spec-options-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .abt-stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .abt-gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================================
+   📱 Large Mobile (481px – 767px)
+   ========================================= */
+@media (min-width: 30.0625rem) and (max-width: 47.99rem) {
+
+    .abt-hero-main-flex {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .abt-main-name {
+        font-size: 2.8rem;
+    }
+
+    .abt-hero-img {
+        width: 18rem;
+        height: 18rem;
+    }
+
+    .abt-spec-options-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .abt-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .abt-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================
+   📲 Tablet (768px – 1024px)
+   ========================================= */
+@media (min-width: 48rem) and (max-width: 64rem) {
+
+    .abt-hero-main-flex {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .abt-main-name {
+        font-size: 3.5rem;
+    }
+
+    .abt-hero-img {
+        width: 22rem;
+        height: 22rem;
+    }
+
+    .abt-spec-options-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .abt-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .abt-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================
+   💻 Laptop (1025px – 1440px)
+   ========================================= */
+@media (min-width: 64.0625rem) and (max-width: 90rem) {
+
+    .abt-main-name {
+        font-size: 4rem;
+    }
+
+    .abt-hero-img {
+        width: 26rem;
+        height: 26rem;
+    }
+
+    .abt-stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .abt-gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+/* =========================================
+   📺 TV / Large Screen (1441px+)
+   ========================================= */
+@media (min-width: 90.0625rem) {
+
+    .abt-container {
+        max-width: 85rem;
+    }
+
+    .abt-main-name {
+        font-size: 5rem;
+    }
+
+    .abt-hero-img {
+        width: 30rem;
+        height: 30rem;
+    }
+
+    .abt-gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

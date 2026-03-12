@@ -1,0 +1,196 @@
+/* --- Core Container --- */
+.service-detail-container {
+    min-height: 100vh;
+    padding: 120px 5% 60px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: radial-gradient(circle at center,
+                #F97316 0%,
+                #E2580A 45%,
+                #C2410C 75%,
+                #B91C0C 100%);
+}
+
+/* --- Title Styling --- */
+.service-title {
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    color: #FFD700;
+    text-align: center;
+    margin-bottom: 40px;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Responsive Layout Structure --- */
+.service-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Mobile: Single Column */
+    gap: 30px;
+    max-width: 1200px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    border-radius: 25px;
+    padding: 30px;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+/* --- Image Box --- */
+.service-image-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.service-main-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 4px solid #FFD700;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+/* --- Content Section --- */
+.service-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.service-name {
+    font-size: 1.8rem;
+    color: #FFD700;
+    border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+    padding-bottom: 10px;
+}
+
+.service-desc {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    opacity: 0.9;
+    color: #f0f0f0;
+}
+
+/* --- Info Blocks (Price, Travel, Samagri) --- */
+.service-price,
+.travel-info,
+.samagri-info {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 15px;
+    border-left: 4px solid #FFD700;
+}
+
+.service-price h3,
+.travel-info h3,
+.samagri-info h3 {
+    color: #FFD700;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.service-price p {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.travel-info p,
+.samagri-info p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #e0e0e0;
+}
+
+/* --- Button Group --- */
+.service-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.back-btn {
+    width: 60%;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    transform: translateX(-5px);
+}
+
+.book-btn {
+    border: none;
+    padding: 16px 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: var(--smooth);
+}
+
+.book-btn:hover {
+    transform: translateY(-5px);
+    filter: brightness(1.1);
+}
+
+.book-btn svg {
+    /* Icon par halka sa glow effect */
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.2));
+}
+
+/* --- Media Queries --- */
+
+/* Tablets (768px+) */
+@media (min-width: 768px) {
+    .service-layout {
+        padding: 40px;
+        grid-template-columns: 1fr;
+        /* Still single column but centered */
+    }
+
+    .service-buttons {
+        flex-direction: row;
+    }
+
+    .book-btn,
+    .back-btn {
+        flex: 1;
+    }
+}
+
+/* Desktops (1024px+) */
+@media (min-width: 1024px) {
+    .service-layout {
+        grid-template-columns: 1fr 1.2fr;
+        /* Double column for desktop */
+        gap: 50px;
+        align-items: start;
+    }
+
+    .service-image-box {
+        position: sticky;
+        top: 120px;
+    }
+
+    .service-main-image {
+        max-width: 100%;
+    }
+}
