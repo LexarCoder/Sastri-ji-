@@ -2,7 +2,7 @@ import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import services from "./servicesData";
 import { ArrowLeft, CalendarCheck } from "lucide-react";
-import "./serviceDetail.css";
+import "./ServiceDetail.css";
 
 const ServiceDetail = () => {
   const { id } = useParams();
