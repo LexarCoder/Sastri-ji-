@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { Download, Menu, X } from "lucide-react";
 import "./nav.css";
 import logo from "../../../assets/nav-logo.webp";
@@ -7,6 +7,7 @@ import logo from "../../../assets/nav-logo.webp";
 const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation(); 
 
   // Scroll Detection
   useEffect(() => {
@@ -15,10 +16,15 @@ const Nav = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Body Scroll Lock
-  useEffect(() => {
-    document.body.style.overflow = isMenuOpen ? "hidden" : "auto";
-  }, [isMenuOpen]);
+   useEffect(() => {
+     setIsMenuOpen(false);
+     document.body.style.overflow = ""; 
+
+   }, [location]);
+
+    useEffect(() => {
+      document.body.style.overflow = isMenuOpen ? "hidden" : ""; // 👈 "" use karo
+    }, [isMenuOpen]);
 
   return (
     <nav className={`nav-wrapper ${isScrolled ? "nav-active" : ""}`}>
