@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { useForm } from "@formspree/react";
 import { useNavigate } from "react-router-dom";
-import "./Book.css";
+import "./book.css";
 
 const Book = () => {
   const [formState, handleSubmitFormspree] = useForm("mreyzrwa");
@@ -16,43 +16,103 @@ const Book = () => {
   const [postOffice, setPostOffice] = useState("");
   const [landmark, setLandmark] = useState("");
   const [loading, setLoading] = useState(false);
+  const [pinError, setPinError] = useState(""); // ✅ alert ki jagah inline error
 
   const navigate = useNavigate();
+
+  const cacheRef = useRef({});
+  const debounceRef = useRef(null);
 
   // PINCODE CHANGE
   const handlePincodeChange = (e) => {
     const value = e.target.value.replace(/\D/g, "");
     setPincode(value);
+    setPinError(""); // error clear karo jab user type kare
+
+    if (debounceRef.current) {
+      clearTimeout(debounceRef.current);
+    }
 
     if (value.length === 6) {
-      fetchLocation(value);
+      debounceRef.current = setTimeout(() => {
+        fetchLocation(value);
+      }, 400);
+    } else {
+      resetLocation();
     }
   };
 
-  // FETCH LOCATION
+  // PRIMARY API FETCH
+  const fetchFromPrimary = async (pin) => {
+    const res = await axios.get(`https://api.postalpincode.in/pincode/${pin}`, {
+      timeout: 8000,
+    });
+    const result = res.data[0];
+    if (result.Status === "Success") return result;
+    return null;
+  };
+
+  // FALLBACK API FETCH (backup source)
+  const fetchFromFallback = async (pin) => {
+    const res = await axios.get(`https://api.postalpincode.in/pincode/${pin}`, {
+      timeout: 10000,
+      headers: { "Cache-Control": "no-cache" }, // fresh request
+    });
+    const result = res.data[0];
+    if (result.Status === "Success") return result;
+    return null;
+  };
+
+  // FETCH LOCATION — primary try, fallback on failure
   const fetchLocation = async (pin) => {
+    // ✅ Cache check
+    if (cacheRef.current[pin]) {
+      applyData(cacheRef.current[pin]);
+      return;
+    }
+
     setLoading(true);
+    setPinError("");
+    resetLocation();
+
+    let result = null;
+
     try {
-      const res = await axios.get(
-        `https://api.postalpincode.in/pincode/${pin}`,
-      );
-
-      if (res.data[0].Status === "Success") {
-        const offices = res.data[0].PostOffice;
-
-        setPostOffices(offices);
-        setState(offices[0].State);
-        setDistrict(offices[0].District);
-        setPostOffice(offices[0].Name);
-      } else {
-        alert("Invalid Pincode");
-        resetLocation();
+      result = await fetchFromPrimary(pin);
+    } catch (primaryErr) {
+      console.warn("Primary API failed:", primaryErr.message);
+      // Primary fail hone par fallback try karo
+      try {
+        result = await fetchFromFallback(pin);
+      } catch (fallbackErr) {
+        console.error("Fallback API also failed:", fallbackErr.message);
+        setPinError(
+          "Network error. Please check your connection and try again.",
+        );
+        setLoading(false);
+        return;
       }
-    } catch {
-      alert("API Error");
+    }
+
+    if (result) {
+      cacheRef.current[pin] = result; // ✅ cache save
+      applyData(result);
+      setPinError("");
+    } else {
+      setPinError("Invalid Pincode. Please enter a valid 6-digit PIN.");
       resetLocation();
     }
+
     setLoading(false);
+  };
+
+  // APPLY DATA
+  const applyData = (result) => {
+    const offices = result.PostOffice;
+    setPostOffices(offices);
+    setState(offices[0].State);
+    setDistrict(offices[0].District);
+    setPostOffice(offices[0].Name);
   };
 
   const resetLocation = () => {
@@ -119,6 +179,13 @@ const Book = () => {
           required
         />
 
+        {/* ✅ Inline error — alert() ki jagah */}
+        {pinError && (
+          <p style={{ color: "red", fontSize: "13px", margin: "4px 0 0" }}>
+            {pinError}
+          </p>
+        )}
+
         {loading && <p>Fetching location...</p>}
 
         <label>State</label>
@@ -130,8 +197,6 @@ const Book = () => {
         {postOffices.length > 0 && (
           <>
             <label>Select Post Office</label>
-          
-
             <select
               className="post-select"
               value={postOffice}

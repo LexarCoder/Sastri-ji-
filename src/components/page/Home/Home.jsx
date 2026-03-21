@@ -80,7 +80,6 @@ const Home = () => {
       <Services />
       <About />
       <Contact />
-      <Footer />
     </>
   );
 };

@@ -4,17 +4,17 @@
        box-sizing: border-box;
    }
 
-   body{
+   body {
        width: 100%;
        height: 100%;
-        background:  var(--bg-color);
+       background: var(--bg-color);
        color: white;
        font-family: var(--body-font);
        line-height: 1.9;
        letter-spacing: 0.3px;
        color: var(--sub-heading);
        overflow-x: hidden;
-    scroll-behavior: smooth;
+       scroll-behavior: smooth;
    }
 
    html {
@@ -54,18 +54,18 @@
        --btn-bg: #FFD700;
        --btn-color: #000;
        --smooth: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
---bg-color: radial-gradient(circle at center,
-            #F97316 0%,
-            #E2580A 45%,
-            #C2410C 75%,
-            #B91C0C 100%);
+       --bg-color: radial-gradient(circle at center,
+               #F97316 0%,
+               #E2580A 45%,
+               #C2410C 75%,
+               #B91C0C 100%);
 
    }
 
-img{
-    object-fit:cover;
-}
-  
+   img {
+       object-fit: cover;
+   }
+
 
    h1 {
        font-family: var(--heading-font);
@@ -138,9 +138,9 @@ img{
        text-align: center;
    }
 
- 
-   .btn1:active{
-    transform: scale(0.95);
+
+   .btn1:active {
+       transform: scale(0.95);
    }
 
    .btn2 {
@@ -151,8 +151,8 @@ img{
        font-weight: 600;
        transition: var(--smooth);
        text-align: center;
-        border: 2px solid var(--btn-bg);
-            background: transparent;
+       border: 2px solid var(--btn-bg);
+       background: transparent;
    }
 
    .btn2:active {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
-import "./Booking.css";
+import "./booking.css";
 import { useForm } from "@formspree/react";
 import QRCode from "react-qr-code";
 
